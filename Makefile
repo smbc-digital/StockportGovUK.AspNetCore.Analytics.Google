@@ -1,0 +1,2 @@
+coverage:
+	cd ./tests && dotnet test //p:CollectCoverage=true /p:Exclude=\"[*],[xunit*]*,[*]StockportGovUK.AspNetCore.Analytics.Google.Tests*\" //p:ExcludeByAttribute="ExcludeFromCodeCoverage" //p:CoverletOutputFormat=lcov
