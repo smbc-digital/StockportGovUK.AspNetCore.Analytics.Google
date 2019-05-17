@@ -53,11 +53,15 @@ $ paket add StockportGovUK.AspNetCore.Attributes.TokenAuthentication
 
 ## Usage
 
-Add your tracking code into you appsetting.json
+Add your tracking code, customer id and data source into your appsetting.json
 
 ```json
 {
-    "GoogleAnalyticsTrackingCode": "UA-XXXXXXXXX-X"
+    "Analytics": {
+      "TrackingCode": "UA-XXXXXXXXX-X",
+      "CustomerId": "555",
+      "DataSource": "application"
+    }
 }
 ```
 

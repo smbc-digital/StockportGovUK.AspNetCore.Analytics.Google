@@ -10,11 +10,39 @@ namespace StockportGovUK.AspNetCore.Analytics.Google
     public class EventTrackingHelper : IEventTrackingHelper
     {
         private readonly string _trackingCode;
+        private readonly string _customerId;
+        private readonly string _dataSource;
         private readonly HttpClient _client;
 
         public EventTrackingHelper(IConfiguration configuration, IHttpClientFactory clientFactory)
         {
-            _trackingCode = configuration.GetValue<string>("GoogleAnalyticsTrackingCode");
+            try
+            {
+                _trackingCode = configuration.GetValue<string>("Analytics:TrackingCode");
+            }
+            catch (Exception)
+            {
+                throw new ArgumentNullException("Tracking Code");
+            }
+
+            try
+            {
+                _customerId = configuration.GetValue<string>("Analytics:CustomerId");
+            }
+            catch (Exception)
+            {
+                throw new ArgumentNullException("Customer Id");
+            }
+
+            try
+            {
+                _dataSource = configuration.GetValue<string>("Analytics:DataSource");
+            }
+            catch (Exception)
+            {
+                throw new ArgumentNullException("Data Source");
+            }
+
             _client = clientFactory.CreateClient();
         }
 
@@ -39,8 +67,8 @@ namespace StockportGovUK.AspNetCore.Analytics.Google
                 {
                     { "v", "1" },
                     { "tid", _trackingCode },
-                    { "cid", "555" },
-                    { "ds", "application" },
+                    { "cid", _customerId },
+                    { "ds", _dataSource },
                     { "t", "event" },
                     { "ec", category },
                     { "ea", action }
