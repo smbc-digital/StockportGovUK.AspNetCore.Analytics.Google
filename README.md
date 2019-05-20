@@ -72,7 +72,7 @@ using StockportGovUK.AspNetCore.Analytics.Google;
 
 public void ConfigureServices(IServiceCollection services)
 {
-    services.AddSingleton<IEventTrackingHelper, EventTrackingHelper>();
+    services.AddGoogleAnalytics();
 }
 ```
 
