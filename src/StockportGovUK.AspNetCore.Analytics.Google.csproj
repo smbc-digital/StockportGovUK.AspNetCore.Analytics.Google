@@ -4,7 +4,7 @@
     <PackageId>StockportGovUK.AspNetCore.Analytics.Google</PackageId>
     <Title>A package that provides methods to track events within Google Analytics</Title>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <VersionPrefix>1.0.0</VersionPrefix>
+    <VersionPrefix>1.0.1</VersionPrefix>
     <Authors>Colin Lees, Jon Chiles, Jon Hadley</Authors>
     <Company>Stockport Council</Company>
     <PackageLicenseFile>License.txt</PackageLicenseFile>
